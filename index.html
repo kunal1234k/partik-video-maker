@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>प्रतीक वीडियो क्रिएटर | AI Video Creation</title>
+
+  <meta
+    name="description"
+    content="प्रतीक वीडियो क्रिएटर - AI Videos बनवाएँ। Short और long-form faceless AI videos."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080b16;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at top left, #6636d9 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #e1306c 0%, transparent 30%),
+        linear-gradient(135deg, #10162d, #080b16);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 900;
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #ff4d8d, #9b6cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #c9cee0;
+      margin-bottom: 25px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e8e9f0;
+      font-size: 14px;
+    }
+
+    /* PRICING */
+    .pricing {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #9da5bf;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(145deg, #151b31, #0f1426);
+      border: 1px solid #2b3453;
+      border-radius: 22px;
+      padding: 30px 24px;
+      transition: 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #8b5cf6;
+      box-shadow: 0 20px 50px rgba(105, 66, 200, 0.22);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .card .description {
+      min-height: 50px;
+      color: #aeb5ca;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin: 20px 0;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: #9299b0;
+      font-weight: normal;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .features li {
+      color: #d7dbea;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: #8b5cf6;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #e1306c, #9b5cff);
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(225,48,108,0.25);
+    }
+
+    /* INFO */
+    .info {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 10px 20px 70px;
+      text-align: center;
+    }
+
+    .info-box {
+      background: #11172a;
+      border: 1px solid #293250;
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .info-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+      color: #adb4ca;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #20283f;
+      padding: 25px 20px;
+      text-align: center;
+      color: #7f879f;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 48vh;
+        padding: 45px 18px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .pricing {
+        padding: 50px 16px;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        ✨ AI Video Creation Studio
+      </div>
+
+      <h1>
+        प्रतीक <span>वीडियो क्रिएटर</span>
+      </h1>
+
+      <p>
+        अपने ideas को professional AI videos में बदलवाएँ।
+        Short videos से लेकर long-form faceless videos तक।
+      </p>
+
+    </div>
+  </header>
+
+
+  <!-- PRICING SECTION -->
+  <section class="pricing">
+
+    <div class="section-title">
+      <h2>हमारी Video Pricing</h2>
+      <p>अपनी जरूरत के हिसाब से वीडियो चुनें</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- 10 SECOND -->
+      <div class="card">
+
+        <h3>10 सेकेंड वीडियो</h3>
+
+        <p class="description">
+          Short AI video for reels, shorts और social media.
+        </p>
+
+        <div class="price">
+          ₹50
+          <small>/ वीडियो</small>
+        </div>
+
+        <ul class="features">
+          <li>AI Generated Video</li>
+          <li>Short Format</li>
+          <li>Social Media Ready</li>
+        </ul>
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/itz_partik_bhardwaj_/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          वीडियो बनवाएँ →
+        </a>
+
+      </div>
+
+
+      <!-- 30 SECOND -->
+      <div class="card">
+
+        <h3>30 सेकेंड वीडियो</h3>
+
+        <p class="description">
+          Engaging AI video for reels, advertisements और promotions.
+        </p>
+
+        <div class="price">
+          ₹120
+          <small>/ वीडियो</small>
+        </div>
+
+        <ul class="features">
+          <li>AI Generated Video</li>
+          <li>30 Second Duration</li>
+          <li>Social Media Ready</li>
+        </ul>
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/itz_partik_bhardwaj_/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          वीडियो बनवाएँ →
+        </a>
+
+      </div>
+
+
+      <!-- 1 MINUTE -->
+      <div class="card">
+
+        <h3>1 मिनट वीडियो</h3>
+
+        <p class="description">
+          Detailed AI video for advertisements, storytelling और promotions.
+        </p>
+
+        <div class="price">
+          ₹500
+          <small>/ वीडियो</small>
+        </div>
+
+        <ul class="features">
+          <li>AI Generated Video</li>
+          <li>Up to 1 Minute</li>
+          <li>Professional Format</li>
+        </ul>
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/itz_partik_bhardwaj_/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          वीडियो बनवाएँ →
+        </a>
+
+      </div>
+
+
+      <!-- 2 MINUTE -->
+      <div class="card">
+
+        <h3>2 मिनट लॉन्ग वीडियो</h3>
+
+        <p class="description">
+          Long-form landscape और faceless AI video.
+        </p>
+
+        <div class="price">
+          ₹800
+          <small>/ वीडियो</small>
+        </div>
+
+        <ul class="features">
+          <li>2 Minute Long Video</li>
+          <li>Landscape Format</li>
+          <li>Faceless Video</li>
+        </ul>
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/itz_partik_bhardwaj_/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          वीडियो बनवाएँ →
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ORDER INFO -->
+  <section class="info">
+
+    <div class="info-box">
+
+      <h2>🎬 अपना AI Video बनवाएँ</h2>
+
+      <p>
+        अपनी वीडियो की requirement बताने के लिए Instagram पर DM करें।
+        Video idea, duration और बाकी details वहीं discuss की जाएँगी।
+      </p>
+
+      <br>
+
+      <a
+        class="btn"
+        style="max-width:320px;margin:auto;"
+        href="https://www.instagram.com/itz_partik_bhardwaj_/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram पर DM करें
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 प्रतीक वीडियो क्रिएटर • AI Video Creation
+  </footer>
+
+</body>
+</html>
